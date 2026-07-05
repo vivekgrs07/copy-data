@@ -1,0 +1,70 @@
+{
+# creating war with exiting jar
+
+[root@localhost my-app]# vi pom.xml
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>                ### Only add this line
+
+wq
+
+[root@localhost my-app]# mvn compile
+
+INFO] Building war: /usr/share/maven/my-app/target/my-app-1.0-SNAPSHOT.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.620 s
+[INFO] Finished at: 2026-07-05T14:09:53+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-war-plugin:3.4.0:war (default-war) on project my-app: Error assembling WAR: webxml attribute is required (or pre-existing WEB-INF/web.xml if executing in update mode) -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+
+Note: We are getting an error because artifact does not support war 
+
+[root@localhost my-app]# vi pom.xml
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>2.0-SNAPSHOT</version>          ## did changes
+  <packaging>jar</packaging>               ## did chnages
+
+wq
+
+# mvn compile
+# mvn package
+# tree
+# java -cp target/my-app-2.0-SNAPSHOT.jar  com.mycompany.app.App
+
+[root@localhost my-app]# vi pom.xml
+
+  <groupId>com.mycompany.app</groupId>    --> Company/organization name
+  <artifactId>my-app</artifactId>         --> Project name (Folder name)
+  <version>1.0-SNAPSHOT</version>         --> Version of package
+
+wq
+
+
+Q: what is superpom.xml ?
+Ans: We don't have this superpom.xml on server. see on browser.
+   --> Default plugins
+   --> repositories 
+   --> build settings
+   --> lifecycle configurations
+
+Q: How can we see that how many pom files i have on my server ?
+Ans: # mvn help:effective-pom
+
+
+
+}
+
+
