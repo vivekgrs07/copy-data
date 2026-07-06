@@ -1,0 +1,48 @@
+## Topic: Dependencies
+
+# Inside settings.xml
+
+
+      <repositories>
+        <repository>
+          <id>jdk14</id>
+          <name>Repository for JDK 1.4 builds</name>
+          <url>http://www.myhost.com/maven/jdk14</url>
+          <layout>default</layout>
+          <snapshotPolicy>always</snapshotPolicy>
+        </repository>
+      </repositories>
+    </profile>
+
+
+##
+
+[[
+
+## Dependency 					Use cases
+   1. Junit					Testing
+   2. MySQL-connector				Connect with MySQL database
+   3. PostgreSQL Driver    			connect with MYSQL database
+   4. Spring web 				Create Rest API
+   5. Spring Security 				Authentication and authorization 
+   6. Apache commons IO				File handling 
+   7. Hibernate					ORM Frameworks
+   8. Log4j					Logging
+   9. jackson 					java object JSON
+   10. GSON					java Object JSON 
+
+]]
+
+[[
+## Dependencies Types/6 scopes of dependencies
+
+   1. compile (Default scope)   --> Ex spring core,log4j ---> Available on compile time and run time.
+   2. runtime ()                --> e.g mysql-connector, postresql-driver    (Not required on compile time, required on runtime)
+   3. test                      --> e.g Junit, Selenuim, Test NG  --> Only for testing purpose.
+   4. provided   	        --> e.g Servelet API, JDK Libraries  --> Available on compile time but it provides environment on runtime.
+   5. system                    --> e.g provided from local repository not from maven central repo.
+   6. import {very importent}	-->  Import other project dependency (pom.xml) in your project (pom.xml).	  
+                                      (bob.xml) --> Bill of materials.     "Note: check sir note."
+]]
+
+### 3 finish 
